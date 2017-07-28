@@ -2,9 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
 import pipeNetMap from '@/components/pipeNetMap'
-import Hello from '@/components/Hello'
-// import Signin from '@/components/Signin'
-// import Signup from '@/components/Signup'
+import Signin from '@/components/Signin'
+import Signup from '@/components/Signup'
 // import Userinfo from '@/components/Userinfo'
 
 
@@ -15,7 +14,7 @@ export default new Router({
     routes: [{
             path: '/',
             name: 'Home',
-            component: Hello,
+            component: Home,
             children: [{
                     path: '/',
                     name: 'pipeNetMap',
@@ -23,15 +22,15 @@ export default new Router({
                 },
             ]
         },
-        // {
-        //     path: 'signin',
-        //     name: 'Signin',
-        //     component: Signin
-        // },
-        // {
-        //     path: 'signup',
-        //     name: 'Signup',
-        //     component: Signup
-        // }
+        {
+            path: 'signin',
+            name: 'Signin',
+            component: Signin
+        },
+        {
+            path: 'signup',
+            name: 'Signup',
+            component: Signup
+        }
     ]
 })

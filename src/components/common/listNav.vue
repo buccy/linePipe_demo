@@ -1,48 +1,56 @@
 <template>
   <div id="listNav">
         <div class="navUp" >
-             <img   class="logo" src="../../assets/logo.png"/> 
+             <img   class="logo" src="../../assets/photo/nav/logo_聚升2@2x.png"/> 
             <div class="line"></div>
         </div>
         <div>
        <ul>
             <li class="listNav-li">
                 <div class="li-div" @click="routerGo(0,'/')">
-                    <img src="../../assets/logo.png"/> 
-                    <p><small>森防地图</small></p>                              
+                    <img src="../../assets/photo/nav/map@2x.png"/> 
+                    <p><small>管网地图</small></p>                              
                 </div>
             </li>
-             <li class="listNav-li">
-                <div class="li-div" @click="routerGo(1,'/resource')">
-                         <img src="../../assets/logo.png"/> 
-                        <p><small>资源管理</small></p>                                 
-                </div>
-            </li>
-             <li class="listNav-li">
+             <li class="listNav-li">                             
                     <el-dropdown class="listNav-dropdown"  >
                         <span class="el-dropdown-link">
                             <div class="li-div">
-                                 <img src="../../assets/logo.png"/> 
-                                <p><small>视频监测</small></p>                              
+                                 <img src="../../assets/photo/nav/jiance@2x.png"/> 
+                                <p><small>实时监测</small></p>                              
                             </div>
                         </span>
                         <el-dropdown-menu slot="dropdown" class="listNav-menu">
-                            <el-dropdown-item  v-on:click.native="routerGo(2,'/video/monitorVideo')" class="listNav-item">监测站</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(2,'/video/plane')" class="listNav-item">无人机</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(1,'/realTimeMoni')" class="listNav-item">绝缘子环流检测</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(1,'/realTimeMoni')" class="listNav-item">电缆监测</el-dropdown-item>
                         </el-dropdown-menu>
-                    </el-dropdown>   
+                    </el-dropdown>                   
+            </li>
+             <li class="listNav-li">
+                    <div class="li-div" @click="routerGo(2,'/')">
+                        <img src="../../assets/photo/nav/shipinjiance@2x.png"/> 
+                        <p><small>视频监测</small></p>                              
+                    </div>
             </li>            
              <li class="listNav-li">
+                    <div class="li-div" @click="routerGo(3,'/')">
+                        <img src="../../assets/photo/nav/taizhang@2x.png"/> 
+                        <p><small>台账管理</small></p>                              
+                    </div>
+            </li>               
+            <li class="listNav-li">
                     <el-dropdown class="listNav-dropdown"  >
                         <span class="el-dropdown-link">
                             <div class="li-div">
-                                 <img src="../../assets/logo.png"/> 
-                                <p><small>气象监测</small></p>                              
+                                 <img src="../../assets/photo/nav/gongcheng@2x.png"/> 
+                                <p><small>工程管理</small></p>                              
                             </div>
                         </span>
                         <el-dropdown-menu slot="dropdown" class="listNav-menu">
-                            <el-dropdown-item  v-on:click.native="routerGo(3,'/weather/monitoringManagement')" class="listNav-item">监测管理</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(3,'/weather/analyse')" class="listNav-item">对比分析</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(4,'/patrol/user')" class="listNav-item">工程信息管理</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(4,'/')" class="listNav-item">工程人员</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(4,'/')" class="listNav-item">任务管理</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(4,'/')" class="listNav-item">工程进度</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>   
             </li>               
@@ -50,15 +58,15 @@
                     <el-dropdown class="listNav-dropdown"  >
                         <span class="el-dropdown-link">
                             <div class="li-div">
-                                 <img src="../../assets/logo.png"/> 
-                                <p><small>巡护监测</small></p>                              
+                                 <img src="../../assets/photo/nav/yunwei@2x.png"/> 
+                                <p><small>运维管理</small></p>                              
                             </div>
                         </span>
                         <el-dropdown-menu slot="dropdown" class="listNav-menu">
-                            <el-dropdown-item  v-on:click.native="routerGo(4,'/patrol/user')" class="listNav-item">巡护人员</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(4,'/')" class="listNav-item">巡护排班</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(4,'/')" class="listNav-item">实时监测</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(4,'/')" class="listNav-item">轨迹回放</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(5,'/')" class="listNav-item">班组管理</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(5,'/fireWarning/plan')" class="listNav-item">缺陷管理</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(5,'/')" class="listNav-item">检修管理</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(5,'/')" class="listNav-item">巡检管理</el-dropdown-item>                        
                         </el-dropdown-menu>
                     </el-dropdown>   
             </li>               
@@ -66,46 +74,23 @@
                     <el-dropdown class="listNav-dropdown"  >
                         <span class="el-dropdown-link">
                             <div class="li-div">
-                                 <img src="../../assets/logo.png"/> 
-                                <p><small>防火预警</small></p>                              
+                                 <img src="../../assets/photo/nav/gongju@2x.png"/> 
+                                <p><small>工具管理</small></p>                              
                             </div>
                         </span>
                         <el-dropdown-menu slot="dropdown" class="listNav-menu">
-                            <el-dropdown-item  v-on:click.native="routerGo(5,'/')" class="listNav-item">火险气象等级预警</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(5,'/fireWarning/plan')" class="listNav-item">防火应急预警</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(5,'/')" class="listNav-item">可燃物管理</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>   
-            </li>               
-            <li class="listNav-li">
-                    <el-dropdown class="listNav-dropdown"  >
-                        <span class="el-dropdown-link">
-                            <div class="li-div">
-                                 <img src="../../assets/logo.png"/> 
-                                <p><small>火灾管理</small></p>                              
-                            </div>
-                        </span>
-                        <el-dropdown-menu slot="dropdown" class="listNav-menu">
-                            <el-dropdown-item  v-on:click.native="routerGo(6,'/fireSciencManagement/position')" class="listNav-item">坐标定位</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(6,'/')" class="listNav-item">火点定位</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(6,'/')" class="listNav-item">火灾档案</el-dropdown-item>
-                            <el-dropdown-item  v-on:click.native="routerGo(6,'/')" class="listNav-item">成果管理</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(6,'/fireSciencManagement/position')" class="listNav-item">工具进出库记录</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(6,'/')" class="listNav-item">工具检查</el-dropdown-item>
+                            <el-dropdown-item  v-on:click.native="routerGo(6,'/')" class="listNav-item">工具盘点</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>   
             </li>               
             <li class="listNav-li">
                 <div class="li-div" @click="routerGo(7,'/outFireConduct')">
-                     <img src="../../assets/logo.png"/> 
-                    <p><small>扑火指挥</small></p>                              
+                     <img src="../../assets/photo/nav/dangan@2x.png"/> 
+                    <p><small>档案管理</small></p>                              
                  </div> 
-            </li>               
-            <li class="listNav-li">
-                <div class="li-div" @click="routerGo(8,'/loss')">
-                     <img src="../../assets/logo.png"/> 
-                    <p><small>损失评估</small></p>                              
-                </div>
-
-            </li>                      
+            </li>                                             
         </ul> 
 
         </div>
@@ -131,9 +116,9 @@ export default {
             var ary=document.getElementsByClassName("listNav-li");
                 for(var i=0;i<ary.length;i++){
                     if(i!=index){
-                        ary[i].style.backgroundColor="#37403F"  
+                        // ary[i].style.backgroundColor="#373940"  
                     }else{
-                        ary[index].style.backgroundColor="#5EBF1D"                
+                        ary[index].style.backgroundColor="#2192D9"                
                     }
                 }
         }
@@ -148,7 +133,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #listNav{
-    background-color:#37403F;
+    background-color:#373940;
     width: 96px;
     height: 100%;
     position: fixed;
@@ -193,7 +178,7 @@ p{
     padding-top:8px
 }
     .listNav-menu{
-        background: #505958;
+        background: #373940;
         border: 0px;
         padding: 0;
         margin-left: 100px;
@@ -207,11 +192,11 @@ p{
         width: 100px;
     }
     .listNav-item:hover{
-        background: #5EBF1D;
+        background: #2192D9;
         color: #FFFFFF;
     }
-li:hover{
-        background: #5EBF1D;
+    li:hover{
+        background: #2192D9;
 
-}
+    }
 </style>
